@@ -1,1 +1,9 @@
 c:\users\hansi\documents\visual studio 2013\Projects\EasyCrop\EasyCrop\bin\Debug\EasyCrop.exe.config
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\bin\Debug\EasyCrop.exe
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\bin\Debug\EasyCrop.pdb
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.csprojResolveAssemblyReference.cache
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.Form1.resources
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.Properties.Resources.resources
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.csproj.GenerateResource.Cache
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.exe
+C:\Users\Hansi\Documents\Visual Studio 2013\Projects\EasyCrop\EasyCrop\obj\Debug\EasyCrop.pdb

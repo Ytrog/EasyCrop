@@ -16,5 +16,24 @@ namespace EasyCrop
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ofdOpen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            if(ofdOpen.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                OpenImage(ofdOpen.FileName);
+            }
+            else
+            {
+                MessageBox.Show("The program will now end", "exit");
+                Application.Exit();
+            }
+        }
+
+        private void OpenImage(string path)
+        {
+            
+        }
     }
 }

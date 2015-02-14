@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pbPicture = new System.Windows.Forms.PictureBox();
+            this.ofdOpen = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pbPicture
+            // 
+            this.pbPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbPicture.Location = new System.Drawing.Point(0, 0);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(817, 446);
+            this.pbPicture.TabIndex = 0;
+            this.pbPicture.TabStop = false;
+            // 
+            // ofdOpen
+            // 
+            this.ofdOpen.FileName = "openFileDialog1";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(817, 446);
+            this.Controls.Add(this.pbPicture);
+            this.Name = "Form1";
+            this.Text = "Easy Crop";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pbPicture;
+        private System.Windows.Forms.OpenFileDialog ofdOpen;
     }
 }
 
