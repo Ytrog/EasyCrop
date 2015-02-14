@@ -17,6 +17,9 @@ namespace EasyCrop
             InitializeComponent();
         }
 
+        private Point Begin { get; set; }
+        public Rectangle Selection { get; private set; }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ofdOpen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
@@ -33,7 +36,53 @@ namespace EasyCrop
 
         private void OpenImage(string path)
         {
-            
+            pbPicture.Load(path);
+        }
+
+        private void pbPicture_MouseDown(object sender, MouseEventArgs e)
+        {
+            // begin drag a box
+            Begin = e.Location;
+        }
+
+        private void pbPicture_MouseUp(object sender, MouseEventArgs e)
+        {
+            Point begin = Begin;
+            Point end = e.Location;
+
+            GraphicsUnit pixel = GraphicsUnit.Pixel;
+
+            var bounds = pbPicture.Image.GetBounds(ref pixel);
+            int imageWidth = pbPicture.Image.Width;
+            int imageHeight = pbPicture.Image.Height;
+
+            if (bounds.Contains(begin) && bounds.Contains(end))
+            {
+                Selection = MakeRectangle(begin, end);
+                using (Graphics g = pbPicture.CreateGraphics())
+                using (Pen pen = new Pen(Color.Black, 2))
+                using (Brush brush = new SolidBrush(this.pbPicture.BackColor))
+                {
+                    g.DrawRectangle(pen, Selection);
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "Selected coordinates are outside the picture", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Rectangle MakeRectangle(Point begin, Point end)
+        {
+            Point topLeft = new Point(Math.Min(begin.X, end.X), Math.Max(begin.Y, end.Y));
+            Point bottomRight = new Point(Math.Max(begin.X, end.X), Math.Min(begin.Y, end.Y));
+
+            int width = bottomRight.X - topLeft.X;
+            int height = topLeft.Y - bottomRight.Y;
+
+            Size size = new Size(width, height);
+
+            return new Rectangle(topLeft, size);
         }
     }
 }

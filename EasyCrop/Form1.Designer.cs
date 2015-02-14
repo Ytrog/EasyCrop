@@ -35,16 +35,19 @@
             // 
             // pbPicture
             // 
+            this.pbPicture.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pbPicture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbPicture.Location = new System.Drawing.Point(0, 0);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(817, 446);
             this.pbPicture.TabIndex = 0;
             this.pbPicture.TabStop = false;
+            this.pbPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPicture_MouseDown);
+            this.pbPicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbPicture_MouseUp);
             // 
             // ofdOpen
             // 
-            this.ofdOpen.FileName = "openFileDialog1";
+            this.ofdOpen.Filter = "JPEG|*.jpg|PNG|*.png|All files|*.*";
             // 
             // Form1
             // 
