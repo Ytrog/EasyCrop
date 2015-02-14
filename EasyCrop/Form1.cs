@@ -98,7 +98,8 @@ namespace EasyCrop
 
         private void Deselect()
         {
-            throw new NotImplementedException();
+            Selection = Rectangle.Empty;
+            pbPicture.Refresh();
         }
 
         private string CropPath(string p)
