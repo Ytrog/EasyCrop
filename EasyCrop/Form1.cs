@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,9 +53,11 @@ namespace EasyCrop
 
             GraphicsUnit pixel = GraphicsUnit.Pixel;
 
-            var bounds = pbPicture.Image.GetBounds(ref pixel);
-            int imageWidth = pbPicture.Image.Width;
-            int imageHeight = pbPicture.Image.Height;
+            Image image = pbPicture.Image;
+
+            var bounds = image.GetBounds(ref pixel);
+            int imageWidth = image.Width;
+            int imageHeight = image.Height;
 
             if (bounds.Contains(begin) && bounds.Contains(end))
             {
@@ -65,13 +68,47 @@ namespace EasyCrop
                 {
                     g.DrawRectangle(pen, Selection);
                 }
-                
+
+                Bitmap bitmap = image as Bitmap;
+
+                if (bitmap != null)
+                {
+                    Bitmap result = bitmap.Clone(Selection, bitmap.PixelFormat);
+
+                    string cropPath = CropPath(ofdOpen.FileName);
+                    sfdSave.InitialDirectory = Path.GetDirectoryName(ofdOpen.FileName);
+                    sfdSave.FileName = cropPath;
+                    if(sfdSave.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        result.Save(sfdSave.FileName);
+                    }
+                    else
+                    {
+                        Deselect();
+                    }
+                }
+
                 Begin = Point.Empty;
             }
             else
             {
                 MessageBox.Show(this, "Selected coordinates are outside the picture", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Deselect()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string CropPath(string p)
+        {
+            string directory = Path.GetDirectoryName(p);
+            string file = Path.GetFileNameWithoutExtension(p);
+            string extension = Path.GetExtension(p);
+
+            return Path.Combine(directory, file + "_cropped" + extension);
+
         }
 
         private Rectangle MakeRectangle(Point begin, Point end)

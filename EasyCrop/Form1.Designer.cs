@@ -30,6 +30,7 @@
         {
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.ofdOpen = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSave = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +69,7 @@
 
         private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.OpenFileDialog ofdOpen;
+        private System.Windows.Forms.SaveFileDialog sfdSave;
     }
 }
 
