@@ -84,6 +84,8 @@ namespace EasyCrop
                     }
                     else
                     {
+                        Clipboard.SetImage(result);
+                        MessageBox.Show("Image copied to clipboard instead");
                         Deselect();
                     }
                 }
