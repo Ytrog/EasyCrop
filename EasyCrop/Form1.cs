@@ -65,6 +65,8 @@ namespace EasyCrop
                 {
                     g.DrawRectangle(pen, Selection);
                 }
+                
+                Begin = Point.Empty;
             }
             else
             {
@@ -74,11 +76,11 @@ namespace EasyCrop
 
         private Rectangle MakeRectangle(Point begin, Point end)
         {
-            Point topLeft = new Point(Math.Min(begin.X, end.X), Math.Max(begin.Y, end.Y));
-            Point bottomRight = new Point(Math.Max(begin.X, end.X), Math.Min(begin.Y, end.Y));
+            Point topLeft = new Point(Math.Min(begin.X, end.X), Math.Min(begin.Y, end.Y));
+            Point bottomRight = new Point(Math.Max(begin.X, end.X), Math.Max(begin.Y, end.Y));
 
             int width = bottomRight.X - topLeft.X;
-            int height = topLeft.Y - bottomRight.Y;
+            int height = bottomRight.Y - topLeft.Y;
 
             Size size = new Size(width, height);
 
