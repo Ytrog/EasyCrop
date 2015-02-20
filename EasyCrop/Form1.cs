@@ -81,6 +81,7 @@ namespace EasyCrop
                     if(sfdSave.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
                     {
                         result.Save(sfdSave.FileName);
+                        Deselect();
                     }
                     else
                     {
